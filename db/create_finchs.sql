@@ -1,0 +1,3 @@
+INSERT INTO main_app_finch(name, img, bio, verified_finch, created_at)
+  VALUES
+    ('House Finch','https://live.staticflickr.com/5830/23535841230_018e36d83b_b.jpg','What bird has a rosy red head, a pleasant song, is native to North America, and was once commonly kept as a cage bird? The house finch! This bird hails from the western coast of the U.S. and parts of Mexico. In the early 20th century, house finches were caught and brought to the East Coast, where pet stores sold them as Hollywood finches. Since their diet is entirely vegetarian, they were easy to maintain in a cage and would sing to their owners content.','t','2021-05-07 18:57:42.517205-07');
