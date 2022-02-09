@@ -13,8 +13,10 @@
     </div>
   </div>
   <!--  This anchor tag will redirect back to finch list without a query param -->
-  <a class="button is-dark" href="{% url 'finch_list' %}">Clear Search</a>
-
+  <div>
+    <a class="button is-dark" href="{% url 'finch_list' %}">Clear Search</a>
+    <a class="button is-dark" href="{% url 'finch_create' %}">Add Finch</a>
+  </div>
 </form>
 <div class="gallery">
   {% for finch in finchs %}

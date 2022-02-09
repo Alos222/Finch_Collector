@@ -26,3 +26,9 @@ class FinchList(TemplateView):
             context["finchs"] = Finch.objects.all()
             context["header"] = "Trending finchs"
         return context
+
+class FinchCreate(CreateView):
+    model = Finch
+    fields = ['name','img','bio']
+    template_name = "finch_create.html"
+    sucess_url = "/finchs/"

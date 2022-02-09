@@ -8,5 +8,6 @@ urlpatterns = [
     path('', views.Home.as_view(), name="home"),
     path('admin/', admin.site.urls),
     path('about/', views.About.as_view(), name="about"),
-    path('finchs/', views.FinchList.as_view(), name = "finch_list")
+    path('finchs/', views.FinchList.as_view(), name = "finch_list"),
+    path('finchs/new/', views.FinchCreate.as_view(), name = "finch_create")
 ]
