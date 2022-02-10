@@ -46,3 +46,8 @@ class FinchUpdate(UpdateView):
     
     def get_success_url(self):
         return reverse('finch_detail', kwargs={'pk': self.object.pk})
+    
+class FinchDelete(DeleteView):
+    model = Finch
+    template_name = "finch_delete_confirmation.html"
+    success_url = "/finchs/"
