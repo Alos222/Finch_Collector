@@ -31,4 +31,10 @@ class FinchCreate(CreateView):
     model = Finch
     fields = ['name','img','bio']
     template_name = "finch_create.html"
-    sucess_url = "/finchs/"
+    def get_success_url(self):
+            return reverse('finch_detail', kwargs={'pk': self.object.pk})
+
+    
+class FinchDetail(DetailView):
+    model = Finch
+    template_name = "finch_detail.html"
