@@ -26,6 +26,20 @@ class FinchList(TemplateView):
             context["finchs"] = Finch.objects.all()
             context["header"] = "Trending finchs"
         return context
+    
+class StateList(TemplateView):
+    template_name = "state_list.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        if name != None:
+            context['states'] = State.objects.filter(name__icontains=name)
+            context['header'] = f"Searching for {name}"
+        else: 
+            context["statess"] = State.objects.all()
+            context["header"] = "Trending States"
+        return context
 
 class FinchCreate(CreateView):
     model = Finch
