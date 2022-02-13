@@ -1,7 +1,7 @@
 from django.shortcuts import redirect
 from django.views import View
 from django.views.generic.base import TemplateView 
-from .models import Finch
+from .models import Finch, State
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
@@ -51,3 +51,14 @@ class FinchDelete(DeleteView):
     model = Finch
     template_name = "finch_delete_confirmation.html"
     success_url = "/finchs/"
+    
+    
+class StateFinchAssoc(View):
+    
+    def get(self, request, pk, finch_pk):
+        assoc = request.GET.get('assoc')
+        if assoc == 'remove':
+            State.objects.get(pk=pk).finchs.remove(finch_pk)
+        if assoc == "add":
+            State.objects.get(pk=pk).finchs.add(finch_pk)
+        return redirect('home')

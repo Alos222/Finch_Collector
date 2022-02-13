@@ -14,3 +14,12 @@ class Finch(models.Model):
 
     class Meta:
         ordering = ['name']
+
+
+class State(models.Model):
+    name = models.CharField(max_length=200)
+    img = models.CharField(max_length=250)
+    finchs = models.ManyToManyField(Finch, related_name="finchs")
+    
+    def __str__(self):
+        return self.name
