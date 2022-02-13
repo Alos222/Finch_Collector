@@ -37,7 +37,7 @@ class StateList(TemplateView):
             context['states'] = State.objects.filter(name__icontains=name)
             context['header'] = f"Searching for {name}"
         else: 
-            context["statess"] = State.objects.all()
+            context["states"] = State.objects.all()
             context["header"] = "Trending States"
         return context
 
@@ -76,3 +76,13 @@ class StateFinchAssoc(View):
         if assoc == "add":
             State.objects.get(pk=pk).finchs.add(finch_pk)
         return redirect('home')
+    
+    
+class StateDetail(DetailView):
+    model = State
+    template_name = "state_detail.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["finchs"] = Finch.objects.all()
+        return context

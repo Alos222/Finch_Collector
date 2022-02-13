@@ -14,10 +14,14 @@
   </div>
   <!--  This anchor tag will redirect back to state list without a query param -->
   <div>
+    <a class="button is-dark" href="{% url 'state_list' %}">Clear Search</a>
+    {% comment %} <a class="button is-dark" href="{% url 'state_create' %}">Add state</a> {% endcomment %}
   </div>
 </form>
 <div class="gallery">
   {% for state in states %}
+  <!-- Here we are changing the href of the a tag to use the url DTL -->
+  <a href="{% url 'state_detail' state.pk %}">
       <div class="card">
         <div class="card-image">
           <figure class="image is-square">
@@ -28,7 +32,7 @@
           <p class="card-header-title">{{state.name}}</p>
         </div>
       </div>
-
+    </a>
     {% endfor %}
 </div>
 
